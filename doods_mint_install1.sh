@@ -2,7 +2,7 @@
 wget https://averagelinuxuser.com/assets/images/posts/2019-01-18-linux-terminal-color/Linux_terminal_color.zip && unzip Linux_terminal_color.zip && sudo mv bash.bashrc /etc/bash.bashrc && sudo mv DIR_COLORS /etc/ && mv .bashrc ~/.bashrc && cd && \
 
 #debloat mint
-sudo apt purge \
+sudo apt purge -y \
 xfce4-dict \
 simple-scan \
 hexchat \
