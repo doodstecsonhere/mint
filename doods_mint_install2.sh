@@ -1,48 +1,3 @@
-#colorize and optimize terminal
-wget https://averagelinuxuser.com/assets/images/posts/2019-01-18-linux-terminal-color/Linux_terminal_color.zip && unzip Linux_terminal_color.zip && sudo mv bash.bashrc /etc/bash.bashrc && sudo mv DIR_COLORS /etc/ && mv .bashrc ~/.bashrc && cd && \
-
-#debloat mint
-sudo apt purge \
-xfce4-dict \
-simple-scan \
-hexchat \
-pix \
-rhythmbox \
-thunderbird \
-transmission-gtk && \
-
-#update
-sudo apt update -y && sudo apt upgrade -y
-
-#install apps in official repos
-sudo apt install -y \
-xfce4-clipman \
-ksnip \
-kdeconnect \
-sshfs \
-spotify-client \
-smplayer \
-qbittorrent \
-gnome-control-center \
-gnome-online-accounts \
-htop \
-xfce4-panel-profiles && \
-
-#spotify repo correction
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6224F9941A8AA6D1 && \
-sudo apt-get update -y && \
-
-#update
-sudo apt update -y && sudo apt upgrade -y && \
-
-#install apps not in official repos
-#timeshift-autosnap
-sudo apt install -y git make
-git clone https://github.com/wmutschl/timeshift-autosnap-apt.git /home/$USER/timeshift-autosnap-apt
-cd /home/$USER/timeshift-autosnap-apt
-yes | sudo make install && \
-cd && reboot
-
 #stremio
 wget https://dl.strem.io/shell-linux/v4.4.165/Stremio_v4.4.165.deb
 sudo apt install -y ~/Stremio_v4.4.165.deb
@@ -130,16 +85,3 @@ sudo apt autoremove --purge -y && sudo apt clean && sudo apt purge $(dpkg -l | a
 
 #open app not in whisker menu
 rescuetime
-
-gnome-control-center
-sudo eggs calamares -i && sudo eggs dad -d && sudo apt update -y && sudo apt upgrade -y && sudo eggs tools skel && sudo eggs produce --clone
-sudo eggs kill
-apt list --installed | grep chrome-remote-desktop
-apt list --installed
-apt-mark showmanual
-sudo apt update -y && sudo apt install -y
-sudo apt autoremove --purge -y && sudo apt clean && sudo apt purge $(dpkg -l | awk '/^rc/ { print $2 }') && sudo journalctl --vacuum-size=50M && flatpak uninstall --unused
-sudo apt update -y && sudo apt upgrade -y
-tgpt -i
-reboot
-htop
