@@ -1,3 +1,6 @@
+#update
+sudo apt update -y && sudo apt upgrade -y
+
 #stremio
 wget https://dl.strem.io/shell-linux/v4.4.165/Stremio_v4.4.165.deb
 sudo apt install -y ~/Stremio_v4.4.165.deb
