@@ -78,7 +78,11 @@ sudo rm -rf
 sudo rm -rf 
 ~/timeshift-autosnap-apt && \
 
+#maintenance
 sudo apt autoremove --purge -y && sudo apt clean && sudo apt purge $(dpkg -l | awk '/^rc/ { print $2 }') && sudo journalctl --vacuum-size=50M && flatpak uninstall --unused
+
+#update
+sudo apt update -y && sudo apt upgrade -y
 
 #open app not in whisker menu
 rescuetime
