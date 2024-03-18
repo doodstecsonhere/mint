@@ -32,19 +32,9 @@ sudo apt update
 sudo apt install microsoft-edge-stable
 
 #clean-up files
-sudo rm -rf
-~/Linux_terminal_color.zip
-~/google-chrome-stable_current_amd64.deb
-~/megasync-xUbuntu_22.04_amd64.deb
-~/PimpMyStremio-linux.zip
-~/rescuetime_current_amd64.deb
-~/stremio-service_amd64.deb
-~/Stremio_v4.4.165.deb
-~/teamviewer_amd64.deb
-~/zoom_amd64.deb
+sudo rm -rf ~/Linux_terminal_color.zip ~/google-chrome-stable_current_amd64.deb ~/megasync-xUbuntu_22.04_amd64.deb ~/PimpMyStremio-linux.zip ~/rescuetime_current_amd64.deb ~/stremio-service_amd64.deb ~/Stremio_v4.4.165.deb ~/teamviewer_amd64.deb ~/zoom_amd64.deb
 #clean-up folders
-sudo rm -rf
-~/timeshift-autosnap-apt && \
+sudo rm -rf ~/timeshift-autosnap-apt && \
 
 #maintenance
 sudo apt autoremove --purge -y && sudo apt clean && sudo apt purge $(dpkg -l | awk '/^rc/ { print $2 }') && sudo journalctl --vacuum-size=50M && flatpak uninstall --unused
