@@ -18,13 +18,17 @@ echo '#!/bin/bash
 chmod +x ~/run_normcap.sh
 
 #microsoft-edge-stable-bin
-sudo apt update -y
-sudo add-apt-repository universe
-sudo wget https://packages.microsoft.com/keys/microsoft.asc -O microsoft.gpg
-sudo apt key add microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-stable.list'
-sudo rm microsoft.gpg
-sudo apt update -y
+## Setup
+wget -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/microsoft.gpg
+
+## Remove any older repository lists for Microsoft Edge if they exist
+sudo rm /etc/apt/sources.list.d/microsoft-edge*.list
+
+## Add the stable repository
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" | sudo tee /etc/apt/sources.list.d/microsoft-edge.list
+
+## Install
+sudo apt update
 sudo apt install microsoft-edge-stable
 
 #clean-up files
