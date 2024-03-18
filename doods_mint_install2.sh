@@ -26,22 +26,15 @@ sudo apt install -y floorp
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install -y ~/google-chrome-stable_current_amd64.deb && \
 #megasync-bin
 wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megasync-xUbuntu_22.04_amd64.deb && sudo apt install -y "$PWD/megasync-xUbuntu_22.04_amd64.deb"
-#microsoft-edge-stable-bin
-## Setup
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-stable.list'
-sudo rm microsoft.gpg
-## Install
-sudo apt update -y
-sudo apt-get update -y
-sudo apt install -y microsoft-edge-stable
-sudo apt update -y
-sudo apt-get update -y
 #teamviewer
 wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo apt install -y ~/teamviewer_amd64.deb
 #zoom
 wget https://cdn.zoom.us/prod/5.17.11.3835/zoom_amd64.deb && sudo apt install -y ./zoom_amd64.deb
+#tgpt-bin
+curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin && \
+sudo apt install -y -f
+#install Bavarder
+flatpak install -y flathub io.github.Bavarder.Bavarder
 
 #normcap pypi
 
@@ -59,12 +52,15 @@ echo '#!/bin/bash
 /home/doods/.local/bin/normcap' > run_normcap.sh 
 chmod +x ~/run_normcap.sh
 
-#tgpt-bin
-curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin && \
-
-sudo apt install -y -f
-#install Bavarder
-flatpak install -y flathub io.github.Bavarder.Bavarder
+#microsoft-edge-stable-bin
+sudo apt update -y
+sudo add-apt-repository universe
+sudo wget https://packages.microsoft.com/keys/microsoft.asc -O microsoft.gpg
+sudo apt key add microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-stable.list'
+sudo rm microsoft.gpg
+sudo apt update -y
+sudo apt install microsoft-edge-stable
 
 #clean-up files
 sudo rm -rf 
