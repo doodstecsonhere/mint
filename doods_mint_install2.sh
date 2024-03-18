@@ -31,7 +31,10 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] h
 sudo rm microsoft.gpg
 ## Install
 sudo apt update -y
+sudo apt-get update -y
 sudo apt install -y microsoft-edge-stable
+sudo apt update -y
+sudo apt-get update -y
 #teamviewer
 wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo apt install -y ~/teamviewer_amd64.deb
 #zoom
@@ -40,7 +43,7 @@ wget https://cdn.zoom.us/prod/5.17.11.3835/zoom_amd64.deb && sudo apt install -y
 #normcap pypi
 
 # install pip
-sudo apt install -y pip
+sudo apt install -y python3-pip
 # Install dependencies (Ubuntu/Debian)
 sudo apt install -y build-essential tesseract-ocr tesseract-ocr-eng libtesseract-dev libleptonica-dev wl-clipboard
 # Install normcap
@@ -49,16 +52,9 @@ pip install normcap
 echo 'export PATH=$PATH:/home/doods/.local/bin' >> ~/.bashrc
 source ~/.bashrc
 
-## create a small script that runs NormCap and link the shortcut to that script instead.
-## Here’s a simple example of what the script could look like:
-
-## #!/bin/bash
-## /home/doods/.local/bin/normcap
-
-## Save this script in your home directory as run_normcap.sh, make it executable with the command
+echo '#!/bin/bash
+/home/doods/.local/bin/normcap' > run_normcap.sh 
 chmod +x ~/run_normcap.sh
-## and then use the full path to the script when creating the keyboard shortcut (./run_normcap.sh).
-
 
 #tgpt-bin
 curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin && \
@@ -67,18 +63,19 @@ sudo apt install -y -f
 #install Bavarder
 flatpak install -y flathub io.github.Bavarder.Bavarder
 
-#clean-up
-sudo rm -rf
-~/Linux_terminal_color.zip
-~/google-chrome-stable_current_amd64.deb
-~/megasync-xUbuntu_22.04_amd64.deb
-~/microsoft-edge-stable_122.0.2365.80-1_amd64.deb
-~/PimpMyStremio-linux.zip
-~/rescuetime_current_amd64.deb
-~/stremio-service_amd64.deb
-~/Stremio_v4.4.165.deb
-~/teamviewer_amd64.deb
-~/zoom_amd64.deb
+#clean-up files
+sudo rm -rf 
+~/Linux_terminal_color.zip 
+~/google-chrome-stable_current_amd64.deb 
+~/megasync-xUbuntu_22.04_amd64.deb 
+~/PimpMyStremio-linux.zip 
+~/rescuetime_current_amd64.deb 
+~/stremio-service_amd64.deb 
+~/Stremio_v4.4.165.deb 
+~/teamviewer_amd64.deb 
+~/zoom_amd64.deb 
+#clean-up folders
+sudo rm -rf 
 ~/timeshift-autosnap-apt && \
 
 sudo apt autoremove --purge -y && sudo apt clean && sudo apt purge $(dpkg -l | awk '/^rc/ { print $2 }') && sudo journalctl --vacuum-size=50M && flatpak uninstall --unused
