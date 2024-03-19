@@ -147,3 +147,4 @@ sudo apt update -y && sudo apt upgrade -y
 tgpt -i
 reboot
 htop
+sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove --purge -y && sudo apt clean && sudo apt purge $(dpkg -l | awk '/^rc/ { print $2 }') && sudo journalctl --vacuum-size=50M && flatpak uninstall --unused
