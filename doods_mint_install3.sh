@@ -1,6 +1,10 @@
 #update
 sudo apt update -y && sudo apt upgrade -y
 
+#onlyoffice-bin
+wget https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
+sudo apt install -y ~/onlyoffice-desktopeditors_amd64.deb
+
 #normcap pypi
 
 # install pip
