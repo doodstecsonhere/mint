@@ -9,6 +9,7 @@ wget https://averagelinuxuser.com/assets/images/posts/2019-01-18-linux-terminal-
 
 #install apps in official repos
 sudo apt install -y \
+git \
 xfce4-clipman \
 ksnip \
 kdeconnect \
