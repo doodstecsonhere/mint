@@ -33,8 +33,6 @@ wget https://cdn.zoom.us/prod/5.17.11.3835/zoom_amd64.deb && sudo apt install -y
 #tgpt-bin
 curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin && \
 sudo apt install -y -f
-#install Bavarder
-flatpak install -y flathub io.github.Bavarder.Bavarder
 
 #maintenance
 sudo apt autoremove --purge -y && sudo apt clean && sudo apt purge $(dpkg -l | awk '/^rc/ { print $2 }') && sudo journalctl --vacuum-size=50M && flatpak uninstall --unused
