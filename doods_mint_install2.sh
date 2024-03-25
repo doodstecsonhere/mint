@@ -36,6 +36,3 @@ sudo apt autoremove --purge -y && sudo apt clean && sudo apt purge $(dpkg -l | a
 
 #update
 sudo apt update -y && sudo apt upgrade -y
-
-#open app not in whisker menu
-rescuetime
