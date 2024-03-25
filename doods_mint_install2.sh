@@ -10,9 +10,6 @@ unzip PimpMyStremio-linux.zip
 #stremio-service-bin
 wget https://dl.strem.io/stremio-service/v0.1.12/stremio-service_amd64.deb
 sudo apt install -y ~/stremio-service_amd64.deb
-#rescuetime2
-wget https://www.rescuetime.com/installers/rescuetime_current_amd64.deb
-sudo apt install -y ~/rescuetime_current_amd64.deb
 #stacer-bin
 sudo add-aspt-repository ppa:oguzhaninan/stacer
 sudo apt-get update
